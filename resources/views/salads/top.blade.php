@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <x-app-layout>
-        <x-slot name="header">
-            　（ヘッダー名）
-        </x-slot>
-    <head>
-        <meta charset="utf-8">
-        <title>Salad</title>
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-    </head>
+<x-app-layout>
     <body>
         <h1>サラダ好きのサラダ好きによるサラダ好きのためのアプリです！</h1>
         <a href='/salads/index'>発見する</a>
@@ -28,5 +17,4 @@
             {{ $salads->links() }}
         </div>
     </body>
-    </x-app-layout>
-</html>
+</x-app-layout>

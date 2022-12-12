@@ -9,34 +9,26 @@
         <title>Blog</title>
     </head>
     <body>
-        <header>
-            <h1><a href="/">レバカレ</a></h1><br>
-            <h3>Levcale イベント一括管理サイト</h3>
-            <nav id="global_navi">
-                <ul>
-                    <li class="current"><a href="/">HOME</a></li>
-                    <li><a href="/mentor_calendar">メンター用</a></li>
-                    <li><a href="/student_calendar">生徒用</a></li>
-                    <li><a href="/login">ログイン</a></li>
-                    <li><a href="/register">新規登録</a></li>
-                </ul>
-            </nav>
-        </header>
         <h1>自作したサラダ名</h1>
-        <form action="/posts" method="POST">
+        <form action="/salads" method="POST">
             @csrf
             <div class="title">
                 <h2>サラダのタイトル</h2>
-                <input type="text" name="post[title]" placeholder="タイトル"/>
+                <input type="text" name="salad[title]" placeholder="タイトル" value="{{ old('salad.title') }}"/>
+                <p class="title__error" style="color:red">{{ $errors->first('salad.title') }}</p>
             </div>
-            <div class="body">
+            <div class="recipe">
                 <h2>レシピ</h2>
-                <textarea name="post[recipe]" placeholder="材料・手順など"></textarea>
+                <textarea name="salad[recipe]" placeholder="材料・手順など">{{ old('salad.recipe') }}</textarea>
+                <p class="recipe__error" style="color:red">{{ $errors->first('salad.recipe') }}</p>
             </div>
             <div class="point">
                 <h2>ポイント</h2>
-                <textarea name="post[point]" placeholder="このサラダのおすすめポイント"></textarea>
+                <textarea name="salad[point]" placeholder="このサラダのおすすめポイント">{{ old('salad.point') }}</textarea>
+                <p class="point__error" style="color:red">{{ $errors->first('salad.point') }}</p>
             </div>
+            <!--<input type="hidden" name="salad[user_id]" value=1 />-->
+            <input type="hidden" name="salad[user_id]" value="{{ Auth::user()->id }}"/>
             <input type="submit" value="保存"/>
         </form>
         <div class="footer">
