@@ -2,13 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Salad;
+use Illuminate\Http\Request;
 
 class SaladController extends Controller
 {
-    public function index(Salad $salad)//インポートしたPostをインスタンス化して$postとして使用。
+    public function index(Salad $salad)//インポートしたSaladをインスタンス化して$saladとして使用。
     {
-        return $salad->get();//$postの中身を戻り値にする。
+        return view('salads/index')->with(['salads' => $salad->getPaginateByLimit(1)]);
+    }
+    
+    public function show(Salad $salad)
+    {
+        return view('salads/show')->with(['salad' => $salad]);
     }
 }
