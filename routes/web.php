@@ -15,5 +15,6 @@ use App\Http\Controllers\SaladController;  //外部にあるPostControllerクラ
 |
 */
 
-Route::get('/', [SaladController::class, 'index']); 
+Route::get('/', [SaladController::class, 'top']);
+Route::get('/posts/index', [SaladController::class, 'index']);
 Route::get('/salads/{salad}', [SaladController::class ,'show']);
