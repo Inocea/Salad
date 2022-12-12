@@ -21,4 +21,9 @@ class SaladController extends Controller
     {
         return view('salads/show')->with(['salad' => $salad]);
     }
+    
+    public function create()
+    {
+        return view('salads/create');
+    }
 }

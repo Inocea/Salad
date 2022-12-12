@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Salad extends Model
 {
     use HasFactory;
-    
+
     public function getPaginateByLimit(int $limit_count = 5)
     {
         // updated_atで降順に並べたあと、limitで件数制限をかける

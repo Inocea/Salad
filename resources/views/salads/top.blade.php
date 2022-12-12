@@ -8,7 +8,8 @@
     </head>
     <body>
         <h1>サラダ好きのサラダ好きによるサラダ好きのためのアプリです！</h1>
-        <a href='/posts/index'>発見する</a>
+        <a href='/salads/index'>発見する</a>
+        <a href='/salads/create'>投稿する</a>
         <div class='salads'>
             @foreach ($salads as $salad)
                 <div class='salad'>
