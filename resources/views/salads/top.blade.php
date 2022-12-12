@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <x-app-layout>
+        <x-slot name="header">
+            　（ヘッダー名）
+        </x-slot>
     <head>
         <meta charset="utf-8">
         <title>Salad</title>
@@ -24,4 +28,5 @@
             {{ $salads->links() }}
         </div>
     </body>
+    </x-app-layout>
 </html>

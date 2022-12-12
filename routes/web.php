@@ -1,8 +1,8 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\SaladController;  //外部にあるPostControllerクラスをインポート。
-
+use App\Http\Controllers\SaladController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +15,21 @@ use App\Http\Controllers\SaladController;  //外部にあるPostControllerクラ
 |
 */
 
-Route::get('/', [SaladController::class, 'top']);
-Route::get('/salads/index', [SaladController::class, 'index']);
-Route::get('/salads/create', [SaladController::class, 'create']);
-Route::get('/salads/{salad}', [SaladController::class ,'show']);
+Route::controller(SaladController::class)->middleware(['auth'])->group(function(){
+    Route::get('/', 'top')->name('top');
+    Route::get('/salads/index', 'index')->name('index');
+    Route::get('/salads/create', 'create')->name('create');
+    Route::get('/salads/{salad}', 'show')->name('show');
+});
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';
