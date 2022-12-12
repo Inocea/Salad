@@ -17,6 +17,7 @@ use App\Http\Controllers\SaladController;
 
 Route::controller(SaladController::class)->middleware(['auth'])->group(function(){
     Route::get('/', 'top')->name('top');
+    Route::post('/salads','store')->name('store');
     Route::get('/salads/index', 'index')->name('index');
     Route::get('/salads/create', 'create')->name('create');
     Route::get('/salads/{salad}', 'show')->name('show');
