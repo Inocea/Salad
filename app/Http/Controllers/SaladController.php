@@ -35,4 +35,23 @@ class SaladController extends Controller
         $salad->fill($input)->save();
         return redirect('/salads/' . $salad->id);
     }
+    
+    public function edit(Salad $salad) //編集機能
+    {
+        return view('salads/edit')->with(['salad' => $salad]);
+    }
+    
+    public function update(SaladRequest $request, Salad $salad) //編集機能
+    {
+        $input_salad = $request['salad'];
+        $salad->fill($input_salad)->save();
+    
+        return redirect('/salads/' . $salad->id);
+    }
+    
+    public function delete(Salad $salad) //削除機能
+    {
+        $salad->delete();
+        return redirect('/');
+    }
 }
