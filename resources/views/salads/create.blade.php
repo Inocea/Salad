@@ -6,7 +6,7 @@
         </x-slot>
     <head>
         <meta charset="utf-8">
-        <title>Blog</title>
+        <title>Salad</title>
     </head>
     <body>
         <h1>自作したサラダ名</h1>

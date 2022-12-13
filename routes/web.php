@@ -21,6 +21,9 @@ Route::controller(SaladController::class)->middleware(['auth'])->group(function(
     Route::get('/salads/index', 'index')->name('index');
     Route::get('/salads/create', 'create')->name('create');
     Route::get('/salads/{salad}', 'show')->name('show');
+    Route::get('/salads/{salad}/edit', 'edit')->name('edit'); //編集機能
+    Route::put('/salads/{salad}', 'update')->name('update'); //編集機能
+    Route::delete('/salads/{salad}', 'delete')->name('delete'); //削除機能
 });
 
 Route::get('/dashboard', function () {
