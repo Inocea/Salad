@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Salad;
 use App\Http\Requests\SaladRequest;
-//use Illuminate\Http\Request;
+use Illuminate\Http\Request;
+use Auth;
 
 class SaladController extends Controller
 {
@@ -26,6 +27,12 @@ class SaladController extends Controller
     public function create()
     {
         return view('salads/create');
+    }
+    
+    public function cloudinary_store(SaladRequest $request)
+    {
+        $image_url = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
+        dd($image_urll);  //画像のURLを画面に表示
     }
     
     public function store(Salad $salad, SaladRequest $request)
@@ -53,5 +60,10 @@ class SaladController extends Controller
     {
         $salad->delete();
         return redirect('/');
+    }
+    
+    public function mypage(Salad $salad) //マイページに飛ぶ
+    {
+        return view('salads/mypage')->with(['salads' => $salad->where('user_id', 'Auth::id')->get()]);
     }
 }
