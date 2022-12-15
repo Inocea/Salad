@@ -1,10 +1,6 @@
 <x-app-layout>
-    <head>
-        <link rel="stylesheet" href="./css/index.css">
-    </head>
     <body>
-        <h1>みんなのサラダを発見する</h1>
-        <a href="/salads/mypage">マイページ</a>
+        <h1>マイページ</h1>
         <div class='salads'>
             @foreach ($salads as $salad)
                 <div class='salad'>
@@ -17,9 +13,6 @@
         </div>
         <div class="footer">
             <a href="/">トップに戻る</a>
-        </div>
-        <div class='paginate'>
-            {{ $salads->links() }}
         </div>
     </body>
 </x-app-layout>

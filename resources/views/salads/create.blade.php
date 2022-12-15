@@ -1,13 +1,4 @@
-<!DOCTYPE HTML>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <x-app-layout>
-        <x-slot name="header">
-            　（ヘッダー名）
-        </x-slot>
-    <head>
-        <meta charset="utf-8">
-        <title>Salad</title>
-    </head>
+<x-app-layout>
     <body>
         <h1>自作したサラダ名</h1>
         <form action="/salads" method="POST">
@@ -17,6 +8,11 @@
                 <input type="text" name="salad[title]" placeholder="タイトル" value="{{ old('salad.title') }}"/>
                 <p class="title__error" style="color:red">{{ $errors->first('salad.title') }}</p>
             </div>
+            <form action="/cloudinary" method="POST" enctype="multipart/form-data">
+                @csrf
+                <input type="file" name="image">
+                <button>画像をアップロード</button>
+            </form>
             <div class="recipe">
                 <h2>レシピ</h2>
                 <textarea name="salad[recipe]" placeholder="材料・手順など">{{ old('salad.recipe') }}</textarea>
@@ -35,5 +31,4 @@
             <a href="/">戻る</a>
         </div>
     </body>
-    </x-app-layout>
-</html>
+</x-app-layout>
