@@ -29,17 +29,19 @@ class SaladController extends Controller
         return view('salads/create');
     }
     
-    public function cloudinary_store(SaladRequest $request)
-    {
-        $image_url = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
-        dd($image_urll);  //画像のURLを画面に表示
-    }
+    // public function cloudinary_store(SaladRequest $request)
+    // {
+    //     $image_url = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
+    //     dd($image_urll);  //画像のURLを画面に表示
+    // }
     
     public function store(Salad $salad, SaladRequest $request)
     {
         $input = $request['salad'];
-        //dd($input);
+        //$image_url = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
+        //dd($image_urll);  //画像のURLを画面に表示
         $salad->fill($input)->save();
+        dd($input);
         return redirect('/salads/' . $salad->id);
     }
     

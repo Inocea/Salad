@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('recipe');
             $table->string('point');
-            $table->string('img_path')->nullable();
+            $table->string('img_path');
             $table->timestamps();
             $table->softDeletes();
         });

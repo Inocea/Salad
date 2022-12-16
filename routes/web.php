@@ -20,7 +20,7 @@ Route::controller(SaladController::class)->middleware(['auth'])->group(function(
     Route::post('/salads','store')->name('store');
     Route::get('/salads/index', 'index')->name('index');
     Route::get('/salads/create', 'create')->name('create');
-    Route::post('/salads/create', 'cloudinary_store')->name('cloudinary_store');  //画像保存処理
+    //Route::post('/salads/create', 'cloudinary_store')->name('cloudinary_store');  //画像保存処理
     Route::get('/salads/mypage', 'mypage')->name('mypage'); //マイページ
     Route::get('/salads/{salad}', 'show')->name('show');
     Route::get('/salads/{salad}/edit', 'edit')->name('edit'); //編集機能

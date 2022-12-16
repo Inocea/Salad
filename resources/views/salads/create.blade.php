@@ -8,11 +8,11 @@
                 <input type="text" name="salad[title]" placeholder="タイトル" value="{{ old('salad.title') }}"/>
                 <p class="title__error" style="color:red">{{ $errors->first('salad.title') }}</p>
             </div>
-            <form action="/cloudinary" method="POST" enctype="multipart/form-data">
-                @csrf
-                <input type="file" name="image">
-                <button>画像をアップロード</button>
-            </form>
+            <!--<form action="/cloudinary" method="POST" enctype="multipart/form-data">-->
+                <!--@csrf-->
+                <!--<input type="file" name="salad[img_path]">-->
+                <!--<button>画像をアップロード</button>-->
+            <!--</form>-->
             <div class="recipe">
                 <h2>レシピ</h2>
                 <textarea name="salad[recipe]" placeholder="材料・手順など">{{ old('salad.recipe') }}</textarea>
