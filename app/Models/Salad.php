@@ -15,6 +15,7 @@ class Salad extends Model
         'title',
         'recipe',
         'point',
+        'img_path',
         'user_id',
     ];
 

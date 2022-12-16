@@ -4,6 +4,6 @@
 }
 
 /* ページ送りを横並びに */
-.paginate li{
+.paginate nav{
     display: inline-block;
 }
